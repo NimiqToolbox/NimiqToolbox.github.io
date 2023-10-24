@@ -51,29 +51,34 @@ document.addEventListener("DOMContentLoaded", function() {
     function updateCart() {
         const cartListElem = document.getElementById('cartList');
         if (!cartListElem) return;
-        
+    
         cartListElem.innerHTML = '';
         let total = 0;
         shopData.cart.forEach(product => {
             const li = document.createElement('li');
-
+    
             const productPrice = parseFloat(product.price.replace('$', ''));
             const productTotal = productPrice * product.quantity;
-
+    
+            const quantity = document.createElement('strong'); // Use <strong> tag to make the amount of products bold
+            quantity.innerText = `${product.quantity} `;
+            li.appendChild(quantity);
+    
             const name = document.createElement('span');
             name.className = 'cart-item-name';
-            name.innerText = `${product.name} - ${product.price} x ${product.quantity} = $${productTotal.toFixed(2)}`;
+            name.innerText = `${product.name}`;
             li.appendChild(name);
 
-            const increaseButton = document.createElement('button');
-            increaseButton.className = 'increase-quantity';
-            increaseButton.innerText = '+';
-            increaseButton.addEventListener('click', function() {
-                product.quantity += 1;
-                updateCart();
-            });
-            li.appendChild(increaseButton);
-
+            const lineBreak = document.createElement('br'); // Add a line break
+            li.appendChild(lineBreak);
+    
+            const productSum = document.createElement('span');
+            productSum.innerText = ` $${productTotal.toFixed(2)}`;
+            li.appendChild(productSum);
+    
+            const buttonContainer = document.createElement('div');
+            buttonContainer.className = 'button-container';
+    
             const decreaseButton = document.createElement('button');
             decreaseButton.className = 'decrease-quantity';
             decreaseButton.innerText = '-';
@@ -87,38 +92,30 @@ document.addEventListener("DOMContentLoaded", function() {
                     updateCart();
                 }
             });
-            li.appendChild(decreaseButton);
-
+            buttonContainer.appendChild(decreaseButton);
+    
+            const increaseButton = document.createElement('button');
+            increaseButton.className = 'increase-quantity';
+            increaseButton.innerText = '+';
+            increaseButton.addEventListener('click', function() {
+                product.quantity += 1;
+                updateCart();
+            });
+            buttonContainer.appendChild(increaseButton);
+    
+            li.appendChild(buttonContainer); // Append the button container to the li element
+    
             cartListElem.appendChild(li);
 
             total += productTotal;
-        });
-
+    });
+    
         // Display total sum
         const totalElem = document.getElementById('cartTotal');
         if (totalElem) {
-            totalElem.innerText = "$" + total.toFixed(2);
+        totalElem.innerText = "$" + total.toFixed(2);
         }
-    }
-
-
-    // Create and initialize the checkout section
-        // Create and initialize the checkout section
-        const checkoutSection = document.getElementById('checkoutSection');
-        if (checkoutSection) {
-            const addressInput = checkoutSection.querySelector('input');
-            const checkoutButton = checkoutSection.querySelector('#checkoutButton');
-            if (checkoutButton) {
-                checkoutButton.addEventListener('click', function() {
-                    if (addressInput) {
-                        const totalElem = document.getElementById('cartTotal');
-                        alert("Total to pay: " + (totalElem ? totalElem.innerText : "$0.00") + "\nShipping to: " + addressInput.value);
-                    }
-                    shopData.cart = [];
-                    updateCart();
-                });
-            }
-        }
+}
     
         function showProductDetails(product) {
             console.log("Setting modal description:", product.description);

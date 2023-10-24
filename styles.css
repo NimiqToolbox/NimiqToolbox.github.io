@@ -58,7 +58,7 @@ main {
 }
 
 #cart {
-    flex: 1;
+    flex: 0.8;
     border-left: 1px solid #ddd;
     padding-left: 20px;
     text-align: left;
@@ -133,9 +133,8 @@ ul {
 
 #cartList li {
     border-bottom: 1px solid #ddd;
-    margin-bottom: 10px;
-    padding-bottom: 10px;
-    border: none;
+    margin-bottom: 3px;
+    padding-bottom: 3px;
     background-color: transparent;
     align-self: right;
 }
