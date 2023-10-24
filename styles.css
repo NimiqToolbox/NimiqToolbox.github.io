@@ -1,0 +1,196 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0 auto;
+    padding: 0;
+    background-color: #ffffff;
+    max-width: 1920px;
+}
+
+header {
+    width: 100%;
+    background-color: #4a6bff;
+    padding: 20px 0;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+#headerImageContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background-image: url('background1.jpg');
+    background-size: cover; /* Change this line */
+    background-position: center;
+    height: 500px;
+}
+
+.header-text {
+    color: white;
+    text-align: center;
+    font-size: 3em; /* Increase the font size */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add text shadow */
+}
+
+#headerImage {
+    width: 100%;
+    height: 500px; /* Adjust this value */
+    object-fit: cover;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: transparent;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: none;
+}
+
+#productSection {
+    flex: 3;
+    margin-right: 20px;
+}
+
+#cart {
+    flex: 1;
+    border-left: 1px solid #ddd;
+    padding-left: 20px;
+    text-align: left;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#productList {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+    gap: 20px;
+    padding: 0px; /* Add desired padding value */
+}
+
+#productList li:hover {
+    background-color: #fff6f6;
+}
+
+#productList li {
+    border: 1px solid #ddd;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-between;
+    height: 200px;
+    width: 190px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border-radius: 15px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+
+#productList img {
+    max-width: 100%;
+    max-height: 110px;
+    object-fit: contain;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto; /* Add this line */
+}
+
+#productList h2, #productList p {
+    margin: 5px 0 5px 0;
+}
+
+#productList p:last-child {
+    margin-bottom: 0;
+}
+
+#productList button {
+    margin-left: auto;
+    padding: 5px 15px;
+    background-color: #86c0ff;
+    color: #fff;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#cartList li {
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border: none;
+    background-color: transparent;
+    align-self: right;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
+    padding: 40px;
+}
+
+.modal-content img {
+    max-width: 500px;
+    max-height: 500px;
+}
+
+.modal-content > div {
+    text-align: center;
+}
+
+.modal-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border: none;
+    font-size: 1.2em;
+    cursor: pointer;
+}
+
+#productModalContent {
+    display: flex;
+    align-items: center;
+}
+
+#productModalContent h2, #productModalContent p {
+    display: inline-block;
+    vertical-align: top;
+    margin: 0;
+}

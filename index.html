@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webshop</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <h1 id="shopName">Awesome Store</h1>
+        </nav>
+    </header>
+    <div id="headerImageContainer">
+        <p class="header-text">Very Awesome Very Cheap Very Good</p>
+    </div>
+    <main>
+        <section id="productSection">
+            <ul id="productList"></ul>
+        </section>
+        <aside id="cart">
+            <h2>Cart</h2>
+            <ul id="cartList"></ul>
+            
+    <p>Total: <span id="cartTotal"></span></p>
+    <button class="btn" onclick="showCheckoutForm()">Checkout</button>
+    
+    <div id="productModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+            <div class="modal-image">
+                <img id="modalImage" src="" alt="">
+            </div>
+            <div class="modal-details">
+                <h2 id="modalName"></h2>
+                <p id="modalPrice"></p>
+                <p id="modalDescription"></p>
+            </div>
+        </div>
+    </div>
+    <div id="checkoutForm" hidden>
+        <h3>Shipping Information</h3>
+        <form onsubmit="return submitOrder(event);">
+            <div class="form-group">
+                <label>Name: <input type="text" id="name" placeholder="Enter your name" required></label>
+            </div>
+            <div class="form-group">
+                <label>Address: <input type="text" id="address" placeholder="Enter your address" required></label>
+            </div>
+            <div class="form-group">
+                <label>City: <input type="text" id="city" placeholder="Enter your city" required></label>
+            </div>
+            <div class="form-group">
+                <label>Postal Code: <input type="text" id="postalCode" placeholder="Enter your postal code" required></label>
+            </div>
+            <div class="form-group">
+                <label>Country: <input type="text" id="country" placeholder="Enter your country" required></label>
+            </div>
+            <div class="form-group">
+                <button class="btn" type="submit">Submit Order</button>
+            </div>
+        </form>
+    </div>
+    
+        </aside>
+    </main>
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
