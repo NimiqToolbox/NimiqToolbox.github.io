@@ -26,7 +26,7 @@ const shopData = {
     "id": 4,
     "name": "Headphones",
     "price": "$100",
-    "description": "Very nice headphones",
+    "description": "Very nice headphones. Best on planet, best on moon best on very long text please",
     "image": "image4.jpg"
   },
 
